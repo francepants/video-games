@@ -3,7 +3,11 @@
 one:
   name: MyString
   content: MyText
+  video_game: one
+  user: one
 
 two:
   name: MyString
   content: MyText
+  video_game: two
+  user: two
