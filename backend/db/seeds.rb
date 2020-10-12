@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create([
+user = User.create([
     {username: "sunshine",
     email: "sunshine@email.com",
     password: "summertime"}
@@ -20,7 +20,7 @@ VideoGame.create([
         game_rating: "E for Everyone",
         game_platform: "Nintendo Switch",
         year_released: 2017,
-        description: "Mario Kart 8 is a 2014 kart racing game developed and published by Nintendo for its Wii U home video game console in May 2014. It retains Mario Kart series game mechanics, where players control Mario franchise characters in kart racing, collecting a variety of items to hinder opponents or gain advantages in the race."},
+        description: "Mario Kart 8 is a 2014 kart racing game developed and published by Nintendo for its Wii U home video ga me console in May 2014. It retains Mario Kart series game mechanics, where players control Mario franchise characters in kart racing, collecting a variety of items to hinder opponents or gain advantages in the race."},
     {
         game_name: "Cyberpunk 2077",
         game_genre: "Action role-playing game, First-person shooter, Open world",
