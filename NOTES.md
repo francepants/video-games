@@ -6,8 +6,8 @@
 - email
 - password
 ### relationship options:
-    - has many video games
-    - has many comments
+    - has_many :comments
+    - has_many :video_games, through: :comments
 
 ## Video game attributes
 - name
@@ -17,10 +17,11 @@
 - description
 - year released
 ### relationship options:
-    - belongs_to :user
-    - has_many :comments, through users
+    - has_many :comments
+    - has_many :users, through: :comments
 
 ## Comment
+- name
 - content
 ### relationship options:
     belongs_to :user
