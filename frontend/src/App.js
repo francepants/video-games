@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import LoginForm from './components/LoginForm'
-import Logout from './components/Logout'
+import NavBar from './components/NavBar'
 import { connect } from 'react-redux'
 import { getCurrentUser } from './actions/currentUser'
+import MainContainer from './containers/MainContainer'
 
 class App extends Component {
   componentDidMount(){
@@ -11,17 +11,14 @@ class App extends Component {
 
   render() {
     return (
-      this.props.currentUser ? <Logout /> : <LoginForm />
+      <div className="App">
+        <NavBar />
+        <MainContainer />
+      </div>
     )
   }
 }
 
-//(state) of redux
-//can do this because we know the incoming argument is an object, state, coming from redux
-const mapStateToProps = ({currentUser}) => {
-  return {
-    currentUser
-  }
-}
 
-export default connect(mapStateToProps, { getCurrentUser })(App)
+
+export default connect(null, { getCurrentUser })(App)
