@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import LoginForm from './components/LoginForm'
+import Logout from './components/Logout'
 import { connect } from 'react-redux'
 import { getCurrentUser } from './actions/currentUser'
 
@@ -10,12 +11,17 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <h1>Video Games</h1>
-        <LoginForm />
-      </div>
+      this.props.currentUser ? <Logout /> : <LoginForm />
     )
   }
 }
 
-export default connect(null, { getCurrentUser })(App)
+//(state) of redux
+//can do this because we know the incoming argument is an object, state, coming from redux
+const mapStateToProps = ({currentUser}) => {
+  return {
+    currentUser
+  }
+}
+
+export default connect(mapStateToProps, { getCurrentUser })(App)
