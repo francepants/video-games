@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  post "/login", to: "sessions#create"
+  get "/get_current_user", to: "sessions#get_current_user"
   resources :comments
   resources :video_games
   resources :users
