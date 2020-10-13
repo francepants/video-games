@@ -48,7 +48,7 @@ export const logout = () => {
         return fetch("http://localhost:3001/logout", {
             credentials: "include",
             method: "DELETE"
-        })=
+        })
     }
 }
 
