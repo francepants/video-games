@@ -1,10 +1,12 @@
-const initialState = {
-    loading: true,
-    videoGames: []
-}
+// const initialState = {
+//     loading: true,
+//     videoGames: []
+// }
 
-export default (state=initialState, action) => {
+export default (state = [], action) => {
     switch(action.type){
+        case "SET_VIDEO_GAMES":
+            return action.videoGames
         default:
             return state
     }
