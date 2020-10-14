@@ -3,9 +3,19 @@ class VideoGamesController < ApplicationController
 
   # GET /video_games
   def index
-    @video_games = VideoGame.all
+    if logged_in? 
+      @video_games = current_user.video_games
+      
+      render json: VideoGameSerializer.new(@video_games)
+      # render json: @video_games
+    else
+      render json: {
+        error: "You must be logged in to see video games"
+      }
+    end
+    # @video_games = VideoGame.all
 
-    render json: @video_games
+    # render json: @video_games
   end
 
   # GET /video_games/1
