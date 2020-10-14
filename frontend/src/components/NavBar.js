@@ -4,12 +4,12 @@ import Login from './LoginForm'
 import Logout from './Logout'
 
 
-const NavBar = (props) => {
+const NavBar = ({currentUser}) => {
     return (
         <div>
             <ul>
-                {props.currentUser ? `Welcome ${props.currentUser.username}!` : ""}
-                {props.currentUser ? <Logout/> : <Login/>}
+                {currentUser ? `Welcome ${currentUser.attributes.username}!` : ""}
+                {currentUser ? <Logout/> : <Login/>}
             </ul>
         </div>
     )
