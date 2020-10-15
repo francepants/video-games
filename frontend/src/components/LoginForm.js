@@ -4,7 +4,7 @@ import { updateLoginForm } from '../actions/loginForm' //import action creator
 import { login } from '../actions/currentUser' //import action creator
 
 //functional component
-const Login = ({ loginForm, updateLoginForm, login }) => {
+const Login = ({ loginForm, updateLoginForm, login, history }) => {
 
     const handleChange = (event) => {
         const {name, value} = event.target
@@ -17,7 +17,7 @@ const Login = ({ loginForm, updateLoginForm, login }) => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        login(loginForm)
+        login(loginForm, history)
     }
 
     return (
