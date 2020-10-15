@@ -6,6 +6,11 @@ export const setVideoGames = videoGames => {
         videoGames
     }
 } 
+export const clearVideoGames = () => {
+    return {
+        type: "CLEAR_VIDEO_GAMES",
+    }
+} 
 
 //async
 export const getVideoGames = () => {
