@@ -14,14 +14,16 @@ user = User.create([
 
 sunshine = User.first 
 
-sunshine_game = sunshine.video_games.create(game_name: "Pokemon Snap",
+sunshine_game = sunshine.video_games.create(
+    game_name: "Pokemon Snap",
     game_genre: "Rail shooter",
     game_rating: "E for Everyone",
     game_platform: "Nintendo 64, Wii, Wii U",
     year_released: 1999,
     description: "Pokémon Snap is a first-person simulation video game with rail shooter style gameplay mechanics co-developed by HAL Laboratory and Pax Softnica and published by Nintendo for the Nintendo 64.")
 
-sunshine_game = sunshine.video_games.create(game_name: "Cyberpunk 2077",
+sunshine_game = sunshine.video_games.create(
+    game_name: "Cyberpunk 2077",
     game_genre: "Action role-playing game, First-person shooter, Open world",
     game_rating: "M for Mature",
     game_platform: "PlayStation 5, Xbox Series X and Series S, Google Stadia, Xbox One, Microsoft Windows",
