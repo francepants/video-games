@@ -10,10 +10,11 @@ const NavBar = ({currentUser, loggedIn}) => {
     return (
         <nav className="nav-wrapper purple darken-4">
             <div className="container">
-                <Link className="brand-logo left" to="/">Video Games</Link>
+                <Link className="left" to="/">Video Games</Link>
                 <ul className="right">
                     <li> <NavLink exact to="/videoGames">My Video Games</NavLink></li>
                     <li> <NavLink exact to="/videoGames/new">New Video Game</NavLink></li>
+                    <li> {currentUser ? `Welcome ${currentUser.attributes.username}!` : ""}</li>
                     <li> { loggedIn ? <Logout/> : null }</li>
                 </ul>
             </div>
