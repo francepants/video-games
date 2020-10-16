@@ -1,9 +1,10 @@
 import React from 'react';
 import { updateNewVideoGameForm } from '../actions/newVideoGameForm'
+import { createVideoGame } from '../actions/videoGames'
 import { connect } from 'react-redux'
 
-const NewVideoGameForm = ({gameName, gameGenre, gameRating, gamePlatform, description, yearReleased, history}) => {
-
+const NewVideoGameForm = ({ formData, updateNewVideoGameForm, createVideoGame, userId, history }) => {
+    const {gameName, gameGenre, gameRating, gamePlatform, description, yearReleased} = formData
     const handleChange = (event) => {
         const {name, value} = event.target
         updateNewVideoGameForm(name, value) //action creator
@@ -11,7 +12,18 @@ const NewVideoGameForm = ({gameName, gameGenre, gameRating, gamePlatform, descri
 
     const handleSubmit = (event) => {
         event.preventDefault()
-
+        createVideoGame({
+            ...formData,
+            userId
+        })
+        // formData: {
+        //     gameName: "",
+        //     gameGenre: "",
+        //     gameRating: "",
+        //     gamePlatform: "",
+        //     description: "",
+        //     yearReleased: ""
+        // }
     }
 
     return (
@@ -32,18 +44,15 @@ const NewVideoGameForm = ({gameName, gameGenre, gameRating, gamePlatform, descri
 
 const mapStateToProps = (state) => {
     //destructure
-    const { gameName, gameGenre, gameRating, gamePlatform, description, yearReleased} = state.newVideoGameForm
+    // const { gameName, gameGenre, gameRating, gamePlatform, description, yearReleased} = state.newVideoGameForm
+    const userId = state.currentUser ? state.currentUser.id : ""
     return {
-        gameName, 
-        gameGenre, 
-        gameRating, 
-        gamePlatform, 
-        description, 
-        yearReleased
+        formData: state.newVideoGameForm,
+        userId
     }
 }
 
 //instead of mapDispatchToProps, can do { updateNewVideoGameForm } as an object
 
-export default connect(mapStateToProps, { updateNewVideoGameForm })(NewVideoGameForm);
+export default connect(mapStateToProps, { updateNewVideoGameForm, createVideoGame })(NewVideoGameForm);
 
