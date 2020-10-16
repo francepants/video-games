@@ -25,13 +25,20 @@ class VideoGamesController < ApplicationController
 
   # POST /video_games
   def create
-    @video_game = VideoGame.new(video_game_params)
-
+    # binding.pry
+    @video_game = current_user.video_games.build(video_game_params)
     if @video_game.save
-      render json: @video_game, status: :created, location: @video_game
+      render json: @video_game, status: :created
     else
       render json: @video_game.errors, status: :unprocessable_entity
     end
+    # @video_game = VideoGame.new(video_game_params)
+
+    # if @video_game.save
+    #   render json: @video_game, status: :created
+    # else
+    #   render json: @video_game.errors, status: :unprocessable_entity
+    # end
   end
 
   # PATCH/PUT /video_games/1
@@ -56,6 +63,6 @@ class VideoGamesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def video_game_params
-      params.require(:video_game).permit(:game_name, :game_genre, :game_rating, :game_platform, :description, :year_released)
+      params.require(:video_game).permit(:game_name, :game_genre, :game_rating, :game_platform, :description, :year_released, :user_id)
     end
 end
