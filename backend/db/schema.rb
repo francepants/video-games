@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2020_10_12_134837) do
     t.string "game_platform"
     t.text "description"
     t.integer "year_released"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
