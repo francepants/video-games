@@ -7,7 +7,7 @@ class CreateVideoGames < ActiveRecord::Migration[6.0]
       t.string :game_platform
       t.text :description
       t.integer :year_released
-
+      t.integer :user_id
       t.timestamps
     end
   end
