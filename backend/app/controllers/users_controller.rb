@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     if @user.save
       # binding.pry
       session[:user_id] = @user.id
-      render json: @user, status: :created
+      render json: UserSerializer.new(@user).serialized_json, status: :created
     else
       resp = {
         error: @user.errors.full_messages.to_sentence
