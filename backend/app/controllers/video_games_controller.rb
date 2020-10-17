@@ -27,8 +27,9 @@ class VideoGamesController < ApplicationController
   def create
     # binding.pry
     @video_game = current_user.video_games.build(video_game_params)
+    # @video_game = VideoGame.new(video_game_params)
     if @video_game.save
-      render json: @video_game, status: :created
+      render json: VideoGameSerializer.new(@video_game), status: :created
     else
       render json: @video_game.errors, status: :unprocessable_entity
     end
