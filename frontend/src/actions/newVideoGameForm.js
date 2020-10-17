@@ -8,3 +8,8 @@ export const updateNewVideoGameForm = (name, value) => {
         formData
     }
 }
+export const resetNewVideoGameForm = () => {
+    return {
+        type: "RESET_NEW_VIDEO_GAME_FORM"
+    }
+}
