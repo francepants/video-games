@@ -23,7 +23,9 @@ class App extends Component {
         <div className="App">
           { loggedIn ? <NavBar /> : <Home />}
           <Switch>
-              {/* <Route exact path='/' render={(props) => loggedIn ? <VideoGames/> : <Home/>}/> */}
+              {/* <Route exact path='/' render={(props) => loggedIn ? <VideoGames/> : <Home/>}/>  */}
+              {/* if commented in it shows welcome twice */}
+
               <Route exact path='/signup' component={Signup}/>
               <Route exact path='/login' component={Login}/>
               <Route exact path='/videoGames' component={VideoGames}/>
