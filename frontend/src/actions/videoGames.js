@@ -41,7 +41,6 @@ export const getVideoGames = () => {
             
         )
         .catch(console.log)
-
     }
 }
 
@@ -67,7 +66,16 @@ export const createVideoGame = (videoGameData) => {
             body: JSON.stringify(updatedRailsData) 
         })
         .then(resp => resp.json())
-        .then(console.log)
+        .then(resp => {
+            if (resp.error) {
+                alert(resp.error)
+            } else {
+                console.log("this is resp.data for create VG", resp.data) 
+                // looks like new VG is added as null ?? 
+                dispatch(addVideoGame(resp.data))
+                dispatch(getVideoGames())
+            }
+        })
         .catch(console.log)
     }
 }
