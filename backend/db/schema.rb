@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_12_134837) do
+ActiveRecord::Schema.define(version: 2020_10_16_161813) do
 
   create_table "comments", force: :cascade do |t|
     t.string "name"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(version: 2020_10_12_134837) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_comments_on_user_id"
     t.index ["video_game_id"], name: "index_comments_on_video_game_id"
+  end
+
+  create_table "user_video_games", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "video_games_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_user_video_games_on_user_id"
+    t.index ["video_games_id"], name: "index_user_video_games_on_video_games_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -45,4 +54,6 @@ ActiveRecord::Schema.define(version: 2020_10_12_134837) do
 
   add_foreign_key "comments", "users"
   add_foreign_key "comments", "video_games"
+  add_foreign_key "user_video_games", "users"
+  add_foreign_key "user_video_games", "video_games", column: "video_games_id"
 end
