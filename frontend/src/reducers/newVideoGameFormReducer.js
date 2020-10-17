@@ -8,12 +8,16 @@ const initialState = {
 }
 
 export default (state=initialState, action) => {
+    console.log("the incoming action:", action)
     switch(action.type) {
         case "UPDATE_NEW_VIDEO_GAME_FORM":
-            return {
-                ...state,
-                [action.formData.name]: action.formData.value
-            }
+        const returnVal = {
+            ...state,
+            [action.formData.name]: action.formData.value
+        }    
+        console.log("reducer returnVal:", returnVal)
+        return returnVal
+            
         case "RESET_NEW_VIDEO_GAME_FORM":
             return initialState
         
