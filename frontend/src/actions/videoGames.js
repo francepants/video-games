@@ -1,4 +1,5 @@
 // sync
+import { resetNewVideoGameForm } from './newVideoGameForm'
 
 export const setVideoGames = videoGames => {
     return {
@@ -44,7 +45,7 @@ export const getVideoGames = () => {
     }
 }
 
-export const createVideoGame = (videoGameData) => {
+export const createVideoGame = (videoGameData, history) => {
     return dispatch => {
         const updatedRailsData = {
             video_game: {
@@ -73,7 +74,10 @@ export const createVideoGame = (videoGameData) => {
                 console.log("this is resp.data for create VG", resp.data) 
                 // looks like new VG is added as null ?? 
                 dispatch(addVideoGame(resp.data))
-                dispatch(getVideoGames())
+                // dispatch(getVideoGames())
+                dispatch(resetNewVideoGameForm())
+                history.push(`/video_games/${resp.data.id}`) //this one does NOT cause error when new game is submitted
+                // history.push(`/videoGames/${resp.data.id}`) //this one DOES cause error when new game is submitted
             }
         })
         .catch(console.log)
