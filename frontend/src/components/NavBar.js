@@ -3,7 +3,6 @@ import React from 'react'
 import Logout from './Logout'
 import { connect } from 'react-redux'
 import { NavLink, Link } from 'react-router-dom'
-import LoggedInWelcome from './LoggedInWelcome'
 
 //functional component
 
