@@ -3,8 +3,11 @@ import NavBar from './components/NavBar'
 import Home from './components/Home'
 import Login from './components/LoginForm'
 import Signup from './components/Signup'
+import LoggedInWelcome from './components/LoggedInWelcome'
 import VideoGames from './components/VideoGames'
 import NewVideoGameForm from './components/NewVideoGameForm'
+import NewVideoGameFormWrapper from './containers/NewVideoGameFormWrapper'
+import EditVideoGameFormWrapper from './containers/EditVideoGameFormWrapper'
 import VideoGameCard from './components/VideoGameCard'
 import { connect } from 'react-redux'
 import { getCurrentUser } from './actions/currentUser'
@@ -26,23 +29,27 @@ class App extends Component {
               {/* <Route exact path='/' render={(props) => loggedIn ? <VideoGames/> : <Home/>}/>  */}
               {/* if commented in it shows welcome twice */}
 
+              <Route exact path='/loggedInWelcome' component={LoggedInWelcome}/>
               <Route exact path='/signup' component={Signup}/>
               <Route exact path='/login' component={Login}/>
               <Route exact path='/videoGames' component={VideoGames}/>
-              <Route exact path='/videoGames/new' component={NewVideoGameForm}/>
+              <Route exact path='/videoGames/new' component={NewVideoGameFormWrapper}/>
               
+              {/* throws an error with videoGames.find */}
               <Route exact path='/videoGames/:id' render={props => {
-              const videoGame = videoGames.find(videoGame => (videoGame.id === props.match.params.id))
-              return <VideoGameCard videoGame={videoGame} {...props}/>
+                // debugger
+                const videoGame = Array.from(videoGames).find(videoGame => 
+                (videoGame.id === props.match.params.id))
+                return <VideoGameCard videoGame={videoGame} {...props}/>
               }
             }/>
 
               <Route exact path='/videoGames/:id/edit' render={props => {
-              const videoGame = videoGames.find(videoGame => {
+                const videoGame = Array.from(videoGames).find(videoGame => {
                 return videoGame.id === props.match.params.id
               })
-              console.log(videoGame)
-              return <NewVideoGameForm videoGame={videoGame} {...props}/>
+              
+              return <EditVideoGameFormWrapper videoGame={videoGame} {...props}/>
               }
             }/>
               {/* use render to pass a prop */}
