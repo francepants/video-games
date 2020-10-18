@@ -15,13 +15,14 @@ export default (state=initialState, action) => {
             ...state,
             [action.formData.name]: action.formData.value
         }    
-        console.log("reducer returnVal:", returnVal)
+        console.log("new VG form reducer returnVal:", returnVal)
         return returnVal
             
         case "RESET_NEW_VIDEO_GAME_FORM":
             return initialState
-        
-        default: 
+        case "PRESET_EDIT_FORM_DATA":
+            return action.vgFormData
+        default:
             return state
     }
 }
