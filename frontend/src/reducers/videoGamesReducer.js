@@ -11,6 +11,9 @@ export default (state = initialState, action) => {
             // debugger
             // so it does show the new game 
             return state.concat(action.videoGame.data)
+        case "UPDATE_VIDEO_GAME":
+            // console.log("update video game action is: ", action)
+            return state.map(videoGame => videoGame.id === action.videoGame.id ? action.videoGame : videoGame)
         case "CLEAR_VIDEO_GAMES":
             return initialState
         default:
