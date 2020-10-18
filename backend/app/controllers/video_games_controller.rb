@@ -45,9 +45,11 @@ class VideoGamesController < ApplicationController
   # PATCH/PUT /video_games/1
   def update
     if @video_game.update(video_game_params)
-      render json: @video_game
+      render json: VideoGameSerializer.new(@video_game), status: :created
     else
-      render json: @video_game.errors, status: :unprocessable_entity
+      render json: {
+        error: "Field cannot be left blank"
+      }
     end
   end
 
