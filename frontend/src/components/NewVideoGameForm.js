@@ -13,11 +13,10 @@ const NewVideoGameForm = ({ formData, updateNewVideoGameForm, createVideoGame, u
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        // debugger
         createVideoGame({
             ...formData,
             userId
-        })
+        }, history)
         getVideoGames()
     }
 
