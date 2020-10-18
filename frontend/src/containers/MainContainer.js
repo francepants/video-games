@@ -1,12 +1,12 @@
-import React from 'react'
-import VideoGames from '../components/VideoGames'
+// import React from 'react'
+// import VideoGames from '../components/VideoGames'
 
-const MainContainer = () => {
-    return (
-        <div className="MainContainer">
-            <VideoGames />
-        </div>
-    )
-}
+// const MainContainer = () => {
+//     return (
+//         <div className="MainContainer">
+//             <VideoGames />
+//         </div>
+//     )
+// }
 
-export default MainContainer
+// export default MainContainer
