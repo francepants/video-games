@@ -5,14 +5,12 @@ import Login from './components/LoginForm'
 import Signup from './components/Signup'
 import LoggedInWelcome from './components/LoggedInWelcome'
 import VideoGames from './components/VideoGames'
-import NewVideoGameForm from './components/NewVideoGameForm'
 import NewVideoGameFormWrapper from './containers/NewVideoGameFormWrapper'
 import EditVideoGameFormWrapper from './containers/EditVideoGameFormWrapper'
 import VideoGameCard from './components/VideoGameCard'
 import { connect } from 'react-redux'
 import { getCurrentUser } from './actions/currentUser'
 import { Route, Switch, withRouter } from 'react-router-dom'
-// import MainContainer from './containers/MainContainer'
 
 
 class App extends Component {
