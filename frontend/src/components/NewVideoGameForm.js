@@ -15,9 +15,8 @@ const NewVideoGameForm = ({ formData, updateNewVideoGameForm, userId, handleSubm
     return (
         <div>
             <form onSubmit={event => {
-                // console.log("is this working or nah")
                 event.preventDefault()
-                handleSubmit(formData, userId)
+                handleSubmit(formData)
                 }}>
                 <input type="text" name="gameName" placeholder="Name" onChange={handleChange} value={gameName}/>
                 <input type="text" name="gameGenre" placeholder="Genre" onChange={handleChange} value={gameGenre}/>
@@ -33,8 +32,6 @@ const NewVideoGameForm = ({ formData, updateNewVideoGameForm, userId, handleSubm
 }
 
 const mapStateToProps = (state) => {
-    // destructure
-    // const { gameName, gameGenre, gameRating, gamePlatform, description, yearReleased} = state.newVideoGameForm
     const userId = state.currentUser ? state.currentUser.id : ""
     return {
         formData: state.newVideoGameForm,
@@ -42,15 +39,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-//instead of mapDispatchToProps, can do { updateNewVideoGameForm } as an object
-
 export default connect(mapStateToProps, { updateNewVideoGameForm })(NewVideoGameForm);
-
-        // formData: {
-        //     gameName: "",
-        //     gameGenre: "",
-        //     gameRating: "",
-        //     gamePlatform: "",
-        //     description: "",
-        //     yearReleased: ""
-        // }
