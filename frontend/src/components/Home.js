@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 
 const Home = () => {
     return (
-            <div>
+            <div className="home-card card">
                 <h1>Welcome!</h1>
                 <h4>Please <Link to="/signup">Sign Up</Link> or <Link to="/login">Log In</Link></h4>
             </div>

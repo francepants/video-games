@@ -30,6 +30,7 @@ class EditVideoGameFormWrapper extends React.Component {
     }
 
     render() {
+
         const {history, deleteVideoGame, videoGame} = this.props
         const videoGameId = videoGame ? videoGame.id : null
         return <>

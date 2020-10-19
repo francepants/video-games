@@ -14,11 +14,11 @@ const NewVideoGameForm = ({ formData, updateNewVideoGameForm, userId, handleSubm
 
     return (
         <div>
-            <form onSubmit={event => {
+            <form className="card form" onSubmit={event => {
                 event.preventDefault()
                 handleSubmit(formData)
                 }}>
-                    <h1>{editMode ? "Update Game" : "Add Game"}</h1>
+                <h1>{editMode ? "Update Game" : "Add Game"}</h1>
                 <input type="text" name="gameName" placeholder="Name" onChange={handleChange} value={gameName}/>
                 <input type="text" name="gameGenre" placeholder="Genre" onChange={handleChange} value={gameGenre}/>
                 <input type="text" name="gameRating" placeholder="Rating" onChange={handleChange} value={gameRating}/>

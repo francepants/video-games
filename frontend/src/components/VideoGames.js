@@ -11,7 +11,7 @@ const VideoGames = (props) => {
     
     // links to VG itself 
     const videoGameCards = props.videoGames.length > 0 ?     
-    props.videoGames.map(vg => (<h4 key={vg.id}><Link to={`/videoGames/${vg.id}`}>{vg.attributes.game_name}</Link></h4>)) : null
+    props.videoGames.map(vg => (<h4 className="videoGame-card card" key={vg.id}><Link to={`/videoGames/${vg.id}`}>{vg.attributes.game_name}</Link></h4>)) : null
 
     return videoGameCards
 }
