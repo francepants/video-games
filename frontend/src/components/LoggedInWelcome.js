@@ -7,8 +7,8 @@ const LoggedInWelcome = () => {
     return (
             <div>
                 <h1>Welcome</h1>
-                <h4>to your video games</h4>
-                <p>Choose to view <Link to="/videoGames">Your Video Games</Link> or <Link to="/videoGames/new">add a new video game to your arsenal</Link></p>
+                <h3>to your video games</h3>
+                <h5>Choose to <Link to="/videoGames">view</Link> your games or <Link to="/videoGames/new">add</Link> a new video game to your arsenal</h5>
             </div>
     );
 }

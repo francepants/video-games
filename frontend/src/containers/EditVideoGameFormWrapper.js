@@ -34,7 +34,7 @@ class EditVideoGameFormWrapper extends React.Component {
         const videoGameId = videoGame ? videoGame.id : null
         return <>
                 <NewVideoGameForm editMode handleSubmit={this.handleSubmit}/>
-                <button onClick={() => deleteVideoGame(videoGameId, history)}>Delete</button>
+                <button className="btn btn-danger" onClick={() => deleteVideoGame(videoGameId, history)}>Delete</button>
             </>
     }
 

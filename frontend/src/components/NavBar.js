@@ -9,18 +9,20 @@ import { NavLink, Link } from 'react-router-dom'
 const NavBar = ({currentUser, loggedIn}) => {
     return (
         <nav className="nav-wrapper purple darken-4">
-            <div className="container">
-                <Link className="left" to='/loggedInWelcome'>Video Games</Link>
-                <ul className="right">
-                    <li> <NavLink exact to="/videoGames">My Video Games</NavLink></li>
-                    <li> <NavLink exact to="/videoGames/new">New Video Game</NavLink></li>
-                    <li> {currentUser ? `Welcome ${currentUser.attributes.username}!` : ""}</li>
-                    <li> { loggedIn ? <Logout/> : null }</li>
+            <div className="collapse navbar-collapse">
+                <Link className="logo left" to='/loggedInWelcome'>Video Games</Link>
+                <ul className="collapse navbar-collapse right">
+                    <li className="nav-item"> <NavLink exact to="/videoGames">My Video Games</NavLink></li>
+                    <li className="nav-item"> <NavLink exact to="/videoGames/new">New Video Game</NavLink></li>
+                    <li className="nav-item"> {currentUser ? `Welcome ${currentUser.attributes.username}!` : ""}</li>
+                    <li className="nav-item"> { loggedIn ? <Logout/> : null }</li>
                 </ul>
             </div>
         </nav>
     )
 }
+
+
 
 const mapStateToProps = ({currentUser}) => {
     return {

@@ -12,7 +12,7 @@ const VideoGameCard = ({ videoGame }) => {
                 <p>{videoGame.attributes.game_platform}</p>
                 <p>{videoGame.attributes.description}</p>
                 
-                <Link to={`/videoGames/${videoGame.id}/edit`}>Edit Game</Link>
+                <Link className="btn" to={`/videoGames/${videoGame.id}/edit`}>Edit Game</Link>
             </div> :
             <p>Nothing to show</p>
     )

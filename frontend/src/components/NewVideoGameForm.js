@@ -26,7 +26,7 @@ const NewVideoGameForm = ({ formData, updateNewVideoGameForm, userId, handleSubm
                 <input type="text" name="description" placeholder="Description" onChange={handleChange} value={description}/>
                 <input type="number" name="yearReleased" placeholder="Year Release(d)" onChange={handleChange} value={yearReleased}/>
 
-                <input type="submit" value={editMode ? "Update Game" : "Add Game"}/>
+                <input className="btn" type="submit" value={editMode ? "Update Game" : "Add Game"}/>
             </form>
         </div>
     );
