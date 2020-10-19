@@ -84,7 +84,9 @@ export const createVideoGame = (videoGameData, history) => {
                 dispatch(getVideoGames())
                 dispatch(resetNewVideoGameForm())
                 // history.push(`/video_games/${resp.data.id}`) //this one does NOT cause error when new game is submitted
-                history.push(`/videoGames/${resp.data.id}`) //this one DOES cause error when new game is submitted > error has to be in videoGames component and/or app.js 
+                history.push(`/videoGames/${resp.data.id}`) //NOW IT'S NOT RECOGNIZING HISTORY.PUSH 
+                //this one DOES cause error when new game is submitted > error has to be in videoGames component and/or app.js 
+
                 // history.push('/videoGames') //this one DOES cause error when new game is submitted
             }
         })
@@ -102,7 +104,6 @@ export const updateVideoGame = (videoGameData, history) => {
                 game_platform: videoGameData.gamePlatform,
                 description: videoGameData.description,
                 year_released: videoGameData.yearReleased,
-                user_id: videoGameData.userId
             }
         }
         return fetch(`http://localhost:3001/video_games/${videoGameData.videoGameId}`, {
@@ -118,14 +119,9 @@ export const updateVideoGame = (videoGameData, history) => {
             if (resp.error) {
                 alert(resp.error)
             } else {
-                console.log("this is resp.data for create VG", resp.data) 
-                // looks like new VG is added as null ?? 
                 dispatch(updateVideoGameSuccess(resp.data))
-                dispatch(resetNewVideoGameForm())
-                history.push(`/videoGames/${resp.data.id}`) //this one DOES cause error when new game is submitted > error has to be in videoGames component and/or app.js 
-                // dispatch(getVideoGames())
-                // history.push(`/video_games/${resp.data.id}`) //this one does NOT cause error when new game is submitted
-                // history.push('/videoGames') //this one DOES cause error when new game is submitted
+                // dispatch(resetNewVideoGameForm())
+                history.push(`/videoGames/${resp.data.id}`) 
             }
         })
         .catch(console.log)
