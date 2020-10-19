@@ -28,6 +28,14 @@ export const updateVideoGameSuccess = (videoGame) => {
     } 
 }
 
+//only fires on successful update
+export const deleteVideoGameSuccess = (videoGameId) => {
+    return {
+        type: "DELETE_VIDEO_GAME",
+        videoGameId
+    } 
+}
+
 //async
 export const getVideoGames = () => {
     return dispatch => {
@@ -83,11 +91,8 @@ export const createVideoGame = (videoGameData, history) => {
                 dispatch(addVideoGame(resp.data))
                 dispatch(getVideoGames())
                 dispatch(resetNewVideoGameForm())
-                // history.push(`/video_games/${resp.data.id}`) //this one does NOT cause error when new game is submitted
                 history.push(`/videoGames/${resp.data.id}`) //NOW IT'S NOT RECOGNIZING HISTORY.PUSH 
-                //this one DOES cause error when new game is submitted > error has to be in videoGames component and/or app.js 
-
-                // history.push('/videoGames') //this one DOES cause error when new game is submitted
+              
             }
         })
         .catch(console.log)
@@ -122,6 +127,29 @@ export const updateVideoGame = (videoGameData, history) => {
                 dispatch(updateVideoGameSuccess(resp.data))
                 // dispatch(resetNewVideoGameForm())
                 history.push(`/videoGames/${resp.data.id}`) 
+            }
+        })
+        .catch(console.log)
+    }
+}
+
+export const deleteVideoGame = (videoGameId, history) => {
+    return dispatch => {
+        return fetch(`http://localhost:3001/video_games/${videoGameId}`, {
+            credentials: "include",
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        .then(resp => resp.json())
+        .then(resp => {
+            if (resp.error) {
+                alert(resp.error)
+            } else {
+                dispatch(deleteVideoGameSuccess(videoGameId))
+                // dispatch(resetNewVideoGameForm())
+                history.push('/videoGames') 
             }
         })
         .catch(console.log)
