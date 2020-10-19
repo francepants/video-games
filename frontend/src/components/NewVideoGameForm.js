@@ -1,7 +1,7 @@
 import React from 'react';
 import { updateNewVideoGameForm } from '../actions/newVideoGameForm'
 import { connect } from 'react-redux'
-import { updateVideoGame } from '../actions/videoGames';
+// import { updateVideoGame } from '../actions/videoGames';
 
 const NewVideoGameForm = ({ formData, updateNewVideoGameForm, userId, handleSubmit, editMode }) => {
 
@@ -18,6 +18,7 @@ const NewVideoGameForm = ({ formData, updateNewVideoGameForm, userId, handleSubm
                 event.preventDefault()
                 handleSubmit(formData)
                 }}>
+                    <h1>{editMode ? "Update Game" : "Add Game"}</h1>
                 <input type="text" name="gameName" placeholder="Name" onChange={handleChange} value={gameName}/>
                 <input type="text" name="gameGenre" placeholder="Genre" onChange={handleChange} value={gameGenre}/>
                 <input type="text" name="gameRating" placeholder="Rating" onChange={handleChange} value={gameRating}/>
