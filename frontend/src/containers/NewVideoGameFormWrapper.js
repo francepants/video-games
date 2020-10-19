@@ -7,13 +7,12 @@ import { connect } from 'react-redux'
 
 
 const NewVideoGameFormWrapper = ({history, createVideoGame}) => {
-    const handleSubmit = (event, formData, userId, history) => {
-        event.preventDefault()
-        console.log('hello from handle submit, event: ', event)
+    const handleSubmit = (formData, userId) => {
+
         createVideoGame({
             ...formData,
             userId
-        }, history)
+        })
         // getVideoGames()
     }
     return <NewVideoGameForm history={history} handleSubmit={handleSubmit}/>
