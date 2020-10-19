@@ -27,7 +27,6 @@ class VideoGamesController < ApplicationController
   def create
     # binding.pry
     @video_game = current_user.video_games.build(video_game_params)
-    # @video_game = VideoGame.new(video_game_params)
     if @video_game.save
       render json: VideoGameSerializer.new(@video_game), status: :created
     else
@@ -45,7 +44,7 @@ class VideoGamesController < ApplicationController
   # PATCH/PUT /video_games/1
   def update
     if @video_game.update(video_game_params)
-      render json: VideoGameSerializer.new(@video_game), status: :created
+      render json: VideoGameSerializer.new(@video_game), status: :ok
     else
       render json: {
         error: "Field cannot be left blank"
@@ -55,7 +54,13 @@ class VideoGamesController < ApplicationController
 
   # DELETE /video_games/1
   def destroy
-    @video_game.destroy
+    if @video_game.destroy
+      render json: "Video Game deleted.", status: :ok
+    else
+      render json: {
+        error: "Something's not right"
+      }
+    end
   end
 
   private
