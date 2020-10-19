@@ -29,7 +29,10 @@ class VideoGamesController < ApplicationController
     if @video_game.save
       render json: VideoGameSerializer.new(@video_game), status: :created
     else
-      render json: @video_game.errors, status: :unprocessable_entity
+      error_resp = {
+        error: @video_game.errors.full_messages.to_sentence
+      }
+      render json: error_resp, status: :unprocessable_entity
     end
   end
 
