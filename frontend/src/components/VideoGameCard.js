@@ -14,7 +14,7 @@ const VideoGameCard = ({ videoGame }) => {
                 
                 <Link to={`/videoGames/${videoGame.id}/edit`}>Edit Game</Link>
             </div> :
-            <p>lalala</p>
+            <p>Nothing to show</p>
     )
 } 
 
