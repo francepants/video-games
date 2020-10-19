@@ -25,20 +25,12 @@ class VideoGamesController < ApplicationController
 
   # POST /video_games
   def create
-    # binding.pry
     @video_game = current_user.video_games.build(video_game_params)
     if @video_game.save
       render json: VideoGameSerializer.new(@video_game), status: :created
     else
       render json: @video_game.errors, status: :unprocessable_entity
     end
-    # @video_game = VideoGame.new(video_game_params)
-
-    # if @video_game.save
-    #   render json: @video_game, status: :created
-    # else
-    #   render json: @video_game.errors, status: :unprocessable_entity
-    # end
   end
 
   # PATCH/PUT /video_games/1
@@ -55,7 +47,7 @@ class VideoGamesController < ApplicationController
   # DELETE /video_games/1
   def destroy
     if @video_game.destroy
-      render json: "Video Game deleted.", status: :ok
+      render json: {message: "Video Game deleted."}, status: :ok
     else
       render json: {
         error: "Something's not right"
