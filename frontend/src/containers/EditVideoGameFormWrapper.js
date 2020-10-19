@@ -1,6 +1,6 @@
 import React from 'react'
 import NewVideoGameForm from '../components/NewVideoGameForm'
-import { updateVideoGame } from '../actions/videoGames'
+import { updateVideoGame, deleteVideoGame } from '../actions/videoGames'
 import { presetEditFormData, resetNewVideoGameForm } from '../actions/newVideoGameForm'
 // import { getVideoGames } from '../actions/videoGames'
 import { connect } from 'react-redux'
@@ -30,14 +30,15 @@ class EditVideoGameFormWrapper extends React.Component {
     }
 
     render() {
-        const {history, handleSubmit} = this.props
+        const {history, deleteVideoGame, videoGame} = this.props
+        const videoGameId = videoGame ? videoGame.id : null
         return <>
                 <NewVideoGameForm editMode handleSubmit={this.handleSubmit}/>
-                <button onClick={this.deleteVideoGame}>Delete</button>
+                <button onClick={() => deleteVideoGame(videoGameId, history)}>Delete</button>
             </>
     }
 
 }
 
 
-export default connect(null, { updateVideoGame, presetEditFormData, resetNewVideoGameForm })(EditVideoGameFormWrapper)
+export default connect(null, { updateVideoGame, presetEditFormData, resetNewVideoGameForm, deleteVideoGame })(EditVideoGameFormWrapper)
