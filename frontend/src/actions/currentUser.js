@@ -23,8 +23,8 @@ export const clearCurrentUser = () => {
 
 // log in
 export const login = (credentials, history) => {
-    console.log("credentials are", credentials)
-    console.log("history is", history)
+    // console.log("credentials are", credentials)
+    // console.log("history is", history)
     return dispatch => {
         return fetch("http://localhost:3001/login", {
             credentials: "include",
@@ -42,7 +42,7 @@ export const login = (credentials, history) => {
                 dispatch(setCurrentUser(resp.data))
                 dispatch(getVideoGames())
                 dispatch(resetLoginForm())
-                history.push('/')
+                history.push('/loggedInWelcome')
             }
         }
         )
@@ -73,7 +73,7 @@ export const signup = (credentials, history) => {
                 dispatch(setCurrentUser(resp.data))
                 dispatch(getVideoGames())
                 dispatch(resetSignupForm())
-                history.push('/')
+                history.push('/loggedInWelcome')
             }
         })
         .catch(console.log)
