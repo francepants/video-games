@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 
 const NewVideoGameForm = ({ formData, updateNewVideoGameForm, userId, handleSubmit, editMode }) => {
 
-    const {gameName, gameGenre, gameRating, gamePlatform, description, yearReleased} = formData
+    const {gameName, gameGenre, gameRating, gamePlatform, description, yearReleased, gameImage} = formData
 
     const handleChange = (event) => {
         const {name, value} = event.target
@@ -18,15 +18,17 @@ const NewVideoGameForm = ({ formData, updateNewVideoGameForm, userId, handleSubm
                 event.preventDefault()
                 handleSubmit(formData)
                 }}>
-                <h1>{editMode ? "Update Game" : "Add Game"}</h1>
-                <input type="text" name="gameName" placeholder="Name" onChange={handleChange} value={gameName}/>
-                <input type="text" name="gameGenre" placeholder="Genre" onChange={handleChange} value={gameGenre}/>
-                <input type="text" name="gameRating" placeholder="Rating" onChange={handleChange} value={gameRating}/>
-                <input type="text" name="gamePlatform" placeholder="Platform" onChange={handleChange} value={gamePlatform}/>
-                <input type="text" name="description" placeholder="Description" onChange={handleChange} value={description}/>
-                <input type="number" name="yearReleased" placeholder="Year Release(d)" onChange={handleChange} value={yearReleased}/>
+                <div className="transbox">
+                    <h1>{editMode ? "Update Game" : "Add Game"}</h1>
+                    <input type="text" name="gameName" placeholder="Name" onChange={handleChange} value={gameName}/>
+                    <input type="number" name="yearReleased" placeholder="Year Release(d)" onChange={handleChange} value={yearReleased}/>
+                    <input type="text" name="gameGenre" placeholder="Genre" onChange={handleChange} value={gameGenre}/>
+                    <input type="text" name="gameRating" placeholder="Rating" onChange={handleChange} value={gameRating}/>
+                    <input type="text" name="gamePlatform" placeholder="Platform" onChange={handleChange} value={gamePlatform}/>
+                    <input type="text" name="description" placeholder="Description" onChange={handleChange} value={description}/>
 
-                <input className="btn" type="submit" value={editMode ? "Update Game" : "Add Game"}/>
+                    <input className="btn" type="submit" value={editMode ? "Update Game" : "Add Game"}/>
+                </div>
             </form>
         </div>
     );
