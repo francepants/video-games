@@ -1,5 +1,5 @@
 import React from 'react'
-import NewVideoGameForm from '../components/NewVideoGameForm'
+import NewVideoGameForm from './NewVideoGameForm'
 import { updateVideoGame, deleteVideoGame } from '../actions/videoGames'
 import { presetEditFormData, resetNewVideoGameForm } from '../actions/newVideoGameForm'
 // import { getVideoGames } from '../actions/videoGames'
