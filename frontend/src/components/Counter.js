@@ -6,15 +6,18 @@ class Counter extends React.Component {
     };
   
     handleClick = () => {
-      // Use updater function when new state is derived from old
       this.setState(prev => ({ count: prev.count + 1 }));
     };
   
     render() {
       return (
-        <button onClick={this.handleClick}>
-          <div>{this.state.count}</div>
-        </button>
+        <div className="counter-text">
+          <p>Up Vote </p>
+          <button onClick={this.handleClick}>
+            {this.state.count}
+          </button>
+        </div>
+
       );
     }
   }
