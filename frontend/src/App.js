@@ -10,7 +10,7 @@ import EditVideoGameFormWrapper from './components/EditVideoGameFormWrapper'
 import VideoGameCard from './components/VideoGameCard'
 import './index.css'
 import { connect } from 'react-redux'
-import { getCurrentUser } from './actions/currentUser'
+import { getCurrentUser } from './actions/Auth/currentUser'
 import { Route, Switch, withRouter } from 'react-router-dom'
 
 
