@@ -38,3 +38,8 @@ rails g scaffold video-games game_name game_genre game_rating game_platform desc
 
 - users
 - video games
+
+## new features
+- upvote 
+    - +1
+

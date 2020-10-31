@@ -1,5 +1,6 @@
  //works with handle change in component > NewVideoGameForm
 
+ // refactor to local state
 export const updateNewVideoGameForm = (name, value) => {
     const formData = { name, value }
     // console.log("action formData:", formData)
