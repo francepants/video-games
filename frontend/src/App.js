@@ -5,8 +5,8 @@ import Login from './components/LoginForm'
 import Signup from './components/Signup'
 import LoggedInWelcome from './components/LoggedInWelcome'
 import VideoGames from './components/VideoGames'
-import NewVideoGameFormWrapper from './containers/NewVideoGameFormWrapper'
-import EditVideoGameFormWrapper from './containers/EditVideoGameFormWrapper'
+import NewVideoGameFormWrapper from './components/NewVideoGameFormWrapper'
+import EditVideoGameFormWrapper from './components/EditVideoGameFormWrapper'
 import VideoGameCard from './components/VideoGameCard'
 import './index.css'
 import { connect } from 'react-redux'
@@ -25,9 +25,6 @@ class App extends Component {
         <div className="App">
           { loggedIn ? <NavBar /> : <Home />}
           <Switch>
-              {/* <Route exact path='/' render={(props) => loggedIn ? <VideoGames/> : <Home/>}/>  */}
-              {/* if commented in it shows welcome twice */}
-
               <Route exact path='/loggedInWelcome' component={LoggedInWelcome}/>
               <Route exact path='/signup' component={Signup}/>
               <Route exact path='/login' component={Login}/>
@@ -36,7 +33,6 @@ class App extends Component {
               
               {/* throws an error with videoGames.find */}
               <Route exact path='/videoGames/:id' render={props => {
-                // debugger
                 const videoGame = Array.from(videoGames).find(videoGame => 
                 (videoGame.id === props.match.params.id))
                 return <VideoGameCard videoGame={videoGame} {...props}/>
@@ -51,7 +47,6 @@ class App extends Component {
               return <EditVideoGameFormWrapper videoGame={videoGame} {...props}/>
               }
             }/>
-              {/* use render to pass a prop */}
             </Switch>
         </div>
     )
