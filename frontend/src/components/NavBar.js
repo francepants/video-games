@@ -1,6 +1,6 @@
 import React from 'react'
 // import Login from './LoginForm'
-import Logout from './Logout'
+import Logout from './Auth/Logout'
 import { connect } from 'react-redux'
 import { NavLink, Link } from 'react-router-dom'
 

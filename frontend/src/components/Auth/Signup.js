@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { updateSignupForm } from '../actions/signupForm' //import action creator
-import { signup } from '../actions/currentUser' //import action creator
+import { updateSignupForm } from '../../actions/signupForm' //import action creator
+import { signup } from '../../actions/currentUser' //import action creator
 
 //functional component
 const Signup = ({ signupForm, updateSignupForm, signup, history }) => {

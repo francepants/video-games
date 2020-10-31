@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { logout } from '../actions/currentUser' //import action creator
+import { logout } from '../../actions/currentUser' //import action creator
 import { withRouter } from 'react-router-dom' //import action creator
 
 //functional component
