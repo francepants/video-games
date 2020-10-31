@@ -131,3 +131,7 @@ a:hover{
 .signup-form, .login-form, input{
   color: rgb(228, 26, 228);
 }
+
+.counter-text{
+  color: orangered
+}
