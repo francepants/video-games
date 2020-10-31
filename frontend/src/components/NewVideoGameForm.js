@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 
 const NewVideoGameForm = ({ formData, updateNewVideoGameForm, userId, handleSubmit, editMode }) => {
 
-    const {gameName, gameGenre, gameRating, gamePlatform, description, yearReleased, gameImage} = formData
+    const {gameName, gameGenre, gameRating, gamePlatform, description, yearReleased} = formData
 
     const handleChange = (event) => {
         const {name, value} = event.target
