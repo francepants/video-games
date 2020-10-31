@@ -86,12 +86,12 @@ export const createVideoGame = (videoGameData, history) => {
             if (resp.error) {
                 alert(resp.error)
             } else {
-                console.log("this is resp.data for create VG", resp.data) 
-                // looks like new VG is added as null ?? 
+                // console.log("this is resp.data for create VG", resp.data) 
                 dispatch(addVideoGame(resp.data))
-                dispatch(getVideoGames())
+                dispatch(getVideoGames()) //breaks if i comment this out
                 dispatch(resetNewVideoGameForm())
                 history.push(`/videoGames/${resp.data.id}`) //NOW IT'S NOT RECOGNIZING HISTORY.PUSH 
+                alert("Game has been added!")
               
             }
         })
@@ -108,7 +108,7 @@ export const updateVideoGame = (videoGameData, history) => {
                 game_rating: videoGameData.gameRating,
                 game_platform: videoGameData.gamePlatform,
                 description: videoGameData.description,
-                year_released: videoGameData.yearReleased,
+                year_released: videoGameData.yearReleased
             }
         }
         return fetch(`http://localhost:3001/video_games/${videoGameData.videoGameId}`, {
