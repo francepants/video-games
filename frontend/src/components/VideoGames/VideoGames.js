@@ -1,6 +1,6 @@
 import React from 'react';
 // import VideoGameCard from './VideoGameCard';
-import Counter from './Counter'
+import Counter from '../Counter'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { updateNewVideoGameForm } from '../actions/newVideoGameForm'
+import { updateNewVideoGameForm } from '../../actions/newVideoGameForm'
 import { connect } from 'react-redux'
 // import { updateVideoGame } from '../actions/videoGames';
 

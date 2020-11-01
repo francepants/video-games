@@ -1,7 +1,7 @@
 import React from 'react'
 import NewVideoGameForm from './NewVideoGameForm'
-import { updateVideoGame, deleteVideoGame } from '../actions/videoGames'
-import { presetEditFormData, resetNewVideoGameForm } from '../actions/newVideoGameForm'
+import { updateVideoGame, deleteVideoGame } from '../../actions/videoGames'
+import { presetEditFormData, resetNewVideoGameForm } from '../../actions/newVideoGameForm'
 // import { getVideoGames } from '../actions/videoGames'
 import { connect } from 'react-redux'
 
