@@ -1,22 +1,22 @@
-import React from 'react'
-import NewVideoGameForm from './NewVideoGameForm'
-import { createVideoGame } from '../../actions/videoGames'
-// import { getVideoGames } from '../actions/videoGames'
-import { connect } from 'react-redux'
+// import React from 'react'
+// import NewVideoGameForm from './NewVideoGameForm'
+// import { createVideoGame } from '../../actions/videoGames'
+// // import { getVideoGames } from '../actions/videoGames'
+// import { connect } from 'react-redux'
 
 
 
-const NewVideoGameFormWrapper = ({history, createVideoGame}) => {
-    const handleSubmit = (formData, userId) => {
+// const NewVideoGameFormWrapper = ({history, createVideoGame}) => {
+//     const handleSubmit = (formData, userId) => {
 
-        createVideoGame({
-            ...formData,
-            userId
-        })
-        // getVideoGames()
-    }
-    return <NewVideoGameForm history={history} handleSubmit={handleSubmit}/>
-}
+//         createVideoGame({
+//             ...formData,
+//             userId
+//         }, history)
+//         // getVideoGames()
+//     }
+//     return <NewVideoGameForm history={history} handleSubmit={handleSubmit}/>
+// }
 
 
-export default connect(null, { createVideoGame })(NewVideoGameFormWrapper)
+// export default connect(null, { createVideoGame })(NewVideoGameFormWrapper)
