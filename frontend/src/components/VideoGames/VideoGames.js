@@ -4,9 +4,9 @@ import Counter from '../Counter'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-
 const VideoGames = (props) => {
-    const videoGameCards = props.videoGames.length > 0 ?     
+    // console.log(props)
+    const videoGameCards = props.videoGames.length > 0 ?   
         props.videoGames.map(vg => 
             (<div className="videoGame-card" key={vg.id}>
                 <h4><Link to={`/videoGames/${vg.id}`}>{vg.attributes.game_name}</Link></h4>
@@ -14,7 +14,11 @@ const VideoGames = (props) => {
             </div> 
         )) : null
 
-    return videoGameCards
+    return (
+        <div>
+            {videoGameCards}
+        </div>
+        )
 }
 
 // state of the store
