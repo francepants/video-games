@@ -86,12 +86,12 @@ export const createVideoGame = (videoGameData, history) => {
             if (resp.error) {
                 alert(resp.error)
             } else {
-                // console.log("this is resp.data for create VG", resp.data) 
+                console.log("this is resp.data for create VG", resp.data) 
                 dispatch(addVideoGame(resp.data))
                 dispatch(getVideoGames()) //breaks if i comment this out
                 dispatch(resetNewVideoGameForm())
-                history.push(`/videoGames/${resp.data.id}`) //NOW IT'S NOT RECOGNIZING HISTORY.PUSH 
                 alert("Game has been added!")
+                history.push(`/videoGames/${resp.data.id}`) //NOW IT'S NOT RECOGNIZING HISTORY.PUSH 
               
             }
         })
