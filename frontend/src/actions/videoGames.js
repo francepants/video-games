@@ -61,6 +61,7 @@ export const getVideoGames = () => {
 }
 
 export const createVideoGame = (videoGameData, history) => {
+    // console.log(history)
     return dispatch => {
         const updatedRailsData = {
             video_game: {
@@ -83,17 +84,16 @@ export const createVideoGame = (videoGameData, history) => {
         })
         .then(resp => resp.json())
         .then(resp => {
-            if (resp.error) {
+        if (resp.error) {
                 alert(resp.error)
             } else {
                 console.log("this is resp.data for create VG", resp.data) 
-                dispatch(addVideoGame(resp.data))
-                dispatch(getVideoGames()) //breaks if i comment this out
+                dispatch(addVideoGame(resp))
+                dispatch(getVideoGames())
                 dispatch(resetNewVideoGameForm())
-                alert("Game has been added!")
-                history.push(`/videoGames/${resp.data.id}`) //NOW IT'S NOT RECOGNIZING HISTORY.PUSH 
-              
+                // alert("Game has been added!")
             }
+            history.push(`/videoGames/${resp.data.id}`) 
         })
         .catch(console.log)
     }
@@ -125,7 +125,7 @@ export const updateVideoGame = (videoGameData, history) => {
                 alert(resp.error)
             } else {
                 dispatch(updateVideoGameSuccess(resp.data))
-                // dispatch(resetNewVideoGameForm())
+                dispatch(resetNewVideoGameForm())
                 history.push(`/videoGames/${resp.data.id}`) 
             }
         })
