@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { updateNewVideoGameForm } from '../../actions/newVideoGameForm'
 import { connect } from 'react-redux'
 import { createVideoGame } from '../../actions/videoGames'
-import { updateVideoGame } from '../../actions/videoGames';
+// import { updateVideoGame } from '../../actions/videoGames';
 
 
 //refactor
