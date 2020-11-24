@@ -53,7 +53,7 @@ h1{
   font-weight: 500;
 }
 
-a{
+a, .delete-text{
   color: rgb(228, 26, 228);
 }
 
